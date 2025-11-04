@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async() => {
-    const dropdown = document.getElementById("algorithm");
+    const dropdown = document.getElementById("algo");
     const algoName = document.getElementById("algoName");
     const algoComplex = document.getElementById("algoComplex");
     const ctx = document.getElementById("complexChart").getContext("2d");
@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", async() => {
     const response = await fetch("/data");
     const data = await response.json();
     const algorithms = data.algorithms;
+
+    const testing = document.getElementById('testOutput')
+    testing.textContent = "";
 
     algorithms.forEach(algo => {
         const option = document.createElement("option");

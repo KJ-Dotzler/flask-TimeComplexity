@@ -4,7 +4,7 @@
         "complexity":"O(n^2)",
         "description":"Performance degrades quickly with larger inputs. Example: nested loops"
     },
-        {"name":"inearithmic Time",
+        {"name":"Linearithmic Time",
         "complexity":"O(n log n)",
         "description":"Common in efficient sorting algorithms like merge sort or heap sort."
     },

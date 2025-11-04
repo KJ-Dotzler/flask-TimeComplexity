@@ -4,12 +4,16 @@
     <div class="container">
         <section class="controls">
             <label for="algorithm">Select an algorithm</label>
-            <select id="algorithm"></select>
+            <select id="algo"></select>
         </section>
 
         <section class="info">
-            <h2 class="algoName">Algorith Name</h2>
+            <h2 id="algoName">Algorithm Name</h2>
             <p id="algoComplex">Time Complexity: <strong>N/A</strong></p>
+        </section>
+
+        <section class="testing">
+            <p id="testOutput"></p>
         </section>
 
         <section class="chart">
@@ -20,6 +24,6 @@
         <canvas id="timeChart" width="300" height="150"></canvas>
     </div>
 {% endblock %}
-{% block script %}
+{% block scripts %}
 <script src="{{ url_for('static', filename='main.js') }}"></script>
 {% endblock %}

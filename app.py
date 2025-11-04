@@ -14,7 +14,7 @@ def index():
 
 @app.route('/data')
 def data():
-    dataPath = os.path.join(app.root_path, 'complexities.json')
+    dataPath = os.path.join(app.root_path, 'data/complexities.json')
     with open(dataPath, 'r') as dataIn:
         jsonOut = json.load(dataIn)
     return jsonify(jsonOut)
