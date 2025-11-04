@@ -1,0 +1,25 @@
+{
+    "algorithms" : [
+        {"name":"Quadratic Time",
+        "complexity":"O(n^2)",
+        "description":"Performance degrades quickly with larger inputs. Example: nested loops"
+    },
+        {"name":"inearithmic Time",
+        "complexity":"O(n log n)",
+        "description":"Common in efficient sorting algorithms like merge sort or heap sort."
+    },
+        {"name":"Logarithmic Time",
+        "complexity":"O(log n)",
+        "description":"Typical of divide and conquer algorithms like binary search."
+    },
+        {"name":"Linear Time",
+        "complexity":"O(n)", 
+        "description":"Operation count grows directly with input size. Example: simple for loop"
+    },
+    {
+        "name":"Constant Time",
+        "complexity":"O(1)",
+        "description":"Operation count does not depend on input. Example: accessing an element of an array"
+    }
+    ]
+}

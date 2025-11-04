@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title%}Big O Notation | Time Complexity {% endblock %}
+{% block content %}
+    <div class="container">
+        <section class="controls">
+            <label for="algorithm">Select an algorithm</label>
+            <select id="algorithm"></select>
+        </section>
+
+        <section class="info">
+            <h2 class="algoName">Algorith Name</h2>
+            <p id="algoComplex">Time Complexity: <strong>N/A</strong></p>
+        </section>
+
+        <section class="chart">
+            <canvas id="complexChart" width="450" height="300"></canvas>
+        </section>
+        
+
+        <canvas id="timeChart" width="300" height="150"></canvas>
+    </div>
+{% endblock %}
+{% block script %}
+<script src="{{ url_for('static', filename='main.js') }}"

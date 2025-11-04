@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"
+        <title>{% block title %}Time Complexity{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS/styles.css') }}">
+        
+    </head>
+    <body>
+        <header>
+            <h1>Time Complexity Visualizer</h1>
+            <p>visualize different algorithms and their time complexities</p>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+            <p>Created for learning purposes, uses python flask, html, CSS, and JS</p>
+            <p><i>Created by Kenneth Dotzler. ChatGPT was used for some code structure 
+                and overall assistance</i></p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        {% block scripts %}{% endblock %}
+    </body>
+
+</html>
