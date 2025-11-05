@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{%block title %} Big O Notation | <a href="{{ url_for('index') }}">Time Complexity</a> | Algorithms{% endblock %}
+{% block content %}
+    <div class="container">
+        <section class="controls">
+            
+            <label for="algoList">Select an algorithm</label>
+            <select id="algoList"></select>
+            <label>
+                <br>
+                <input type="checkbox" id="scaleToggle">
+                Scale Chart
+            </label>
+        </section>
+
+        <section class="info">
+            <h2 id="algoName">Algorithm</h2>
+            <h4 id="algoExplanation">Explanation</h4>
+        </section>
+
+        <section class="chart">
+            <canvas id="algoChart" width="100" height="100"></canvas>
+        </section>
+
+        <section class="code">
+            <h3>Example of function/method that uses algorithm</h3>
+            <pre><code id="algoCode">Test/Example code</code></pre>
+        </section>
+    </div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='algo.js') }}"></script>
+{% endblock %}

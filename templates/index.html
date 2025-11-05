@@ -1,15 +1,16 @@
 {% extends "base.html" %}
-{% block title%}Big O Notation | Time Complexity {% endblock %}
+{% block title%}Big O Notation | Time Complexity | <a href="{{ url_for('algoPage') }}">Algorithms</a>{% endblock %}
 {% block content %}
     <div class="container">
         <section class="controls">
-            <label for="algorithm">Select an algorithm</label>
-            <select id="algo"></select>
+            <label for="complex">Select a Time Complexity</label>
+            <select id="complex"></select>
         </section>
 
         <section class="info">
-            <h2 id="algoName">Algorithm Name</h2>
-            <p id="algoComplex">Time Complexity: <strong>N/A</strong></p>
+            <h2 id="complexName">Complexity</h2>
+            <h4 id="complexTime">Time Complexity: <strong>N/A</strong></h4>
+            <p id="complexDescription">No Time Complexity selected</p>
         </section>
 
         <section class="testing">
@@ -17,7 +18,7 @@
         </section>
 
         <section class="chart">
-            <canvas id="complexChart" width="450" height="300"></canvas>
+            <canvas id="complexChart" width="350" height="175"></canvas>
         </section>
         
 

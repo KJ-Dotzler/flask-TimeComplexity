@@ -1,20 +1,21 @@
 document.addEventListener("DOMContentLoaded", async() => {
-    const dropdown = document.getElementById("algo");
-    const algoName = document.getElementById("algoName");
-    const algoComplex = document.getElementById("algoComplex");
+    const dropdown = document.getElementById("complex");
+    const complexName = document.getElementById("complexName");
+    const complexTime = document.getElementById("complexTime");
+    const complexDescription = document.getElementById("complexDescription");
     const ctx = document.getElementById("complexChart").getContext("2d");
 
     const response = await fetch("/data");
     const data = await response.json();
-    const algorithms = data.algorithms;
+    const complexArr = data.algorithms;
 
     const testing = document.getElementById('testOutput')
     testing.textContent = "";
 
-    algorithms.forEach(algo => {
+    complexArr.forEach(cpx => {
         const option = document.createElement("option");
-        option.value = algo.name;
-        option.textContent = algo.name;
+        option.value = cpx.name;
+        option.textContent = cpx.name;
         dropdown.appendChild(option);
     });
     const chart = new Chart(ctx, {
@@ -33,9 +34,10 @@ document.addEventListener("DOMContentLoaded", async() => {
     })
 
     dropdown.addEventListener('change', (e) => {
-        const selected = algorithms.find(a => a.name === e.target.value);
-        algoName.textContent = selected.name;
-        algoComplex.innerHTML = `Time Complexity: <strong>${selected.complexity}</strong>`;
+        const selected = complexArr.find(a => a.name === e.target.value);
+        complexName.textContent = selected.name;
+        complexTime.innerHTML = `Time Complexity: <strong>${selected.complexity}</strong>`;
+        complexDescription.innerHTML = `${selected.description}`;
 
         const growth = simulateComplexity(selected.complexity);
         chart.data.datasets = [{

@@ -1,0 +1,92 @@
+{
+  "algorithms": [
+    {
+      "name": "Select an Algorithm",
+      "category": "N/A",
+      "complexity": {
+        "best": "N/A",
+        "average": "N/A",
+        "worst": "N/A"
+      },
+      "explanation": "No Algorithm selected",
+      "code": "No Algorithm Selected"
+    },
+    {
+      "name": "Bubble Sort",
+      "category": "Sorting",
+      "complexity": {
+        "best": "O(n)",
+        "average": "O(n^2)",
+        "worst": "O(n^2)"
+      },
+      "explanation": "Bubble Sort repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. This process repeats until the list is sorted.",
+      "code": "def bubble_sort(arr):\n    n = len(arr)\n    for i in range(n):\n        for j in range(0, n - i - 1):\n            if arr[j] > arr[j + 1]:\n                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n    return arr"
+    },
+    {
+      "name": "Merge Sort",
+      "category": "Sorting",
+      "complexity": {
+        "best": "O(n log n)",
+        "average": "O(n log n)",
+        "worst": "O(n log n)"
+      },
+      "explanation": "Merge Sort divides the array into halves, sorts each half recursively, and then merges the sorted halves back together.",
+      "code": "def merge_sort(arr):\n    if len(arr) > 1:\n        mid = len(arr) // 2\n        L = arr[:mid]\n        R = arr[mid:]\n        merge_sort(L)\n        merge_sort(R)\n        i = j = k = 0\n        while i < len(L) and j < len(R):\n            if L[i] < R[j]:\n                arr[k] = L[i]\n                i += 1\n            else:\n                arr[k] = R[j]\n                j += 1\n            k += 1\n        while i < len(L):\n            arr[k] = L[i]\n            i += 1\n            k += 1\n        while j < len(R):\n            arr[k] = R[j]\n            j += 1\n            k += 1\n    return arr"
+    },
+    {
+      "name": "Binary Search",
+      "category": "Search",
+      "complexity": {
+        "best": "O(1)",
+        "average": "O(log n)",
+        "worst": "O(log n)"
+      },
+      "explanation": "Binary Search efficiently finds a target value within a sorted array by repeatedly dividing the search interval in half.",
+      "code": "def binary_search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1"
+    },
+    {
+      "name": "Breadth-First Search (BFS)",
+      "category": "Graph",
+      "complexity": {
+        "best": "O(V + E)",
+        "average": "O(V + E)",
+        "worst": "O(V + E)"
+      },
+      "explanation": "BFS explores the graph level by level starting from the source node, visiting all neighbors before moving deeper. It’s often used for shortest path problems on unweighted graphs.",
+      "code": "from collections import deque\n\ndef bfs(graph, start):\n    visited = set()\n    queue = deque([start])\n    visited.add(start)\n\n    while queue:\n        vertex = queue.popleft()\n        print(vertex, end=' ')\n        for neighbor in graph[vertex]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)"
+    },
+    {
+      "name": "Depth-First Search (DFS)",
+      "category": "Graph",
+      "complexity": {
+        "best": "O(V + E)",
+        "average": "O(V + E)",
+        "worst": "O(V + E)"
+      },
+      "explanation": "DFS explores as far as possible along each branch before backtracking. It’s often used for pathfinding, topological sorting, and detecting cycles in graphs.",
+      "code": "def dfs(graph, start, visited=None):\n    if visited is None:\n        visited = set()\n    visited.add(start)\n    print(start, end=' ')\n    for neighbor in graph[start]:\n        if neighbor not in visited:\n            dfs(graph, neighbor, visited)"
+    },
+    {
+      "name": "Dijkstra's Algorithm",
+      "category": "Graph",
+      "complexity": {
+        "best": "O(V + E log V)",
+        "average": "O(V + E log V)",
+        "worst": "O(V^2)"
+      },
+      "explanation": "Dijkstra's Algorithm finds the shortest path from a starting node to all other nodes in a weighted graph with non-negative edges.",
+      "code": "import heapq\n\ndef dijkstra(graph, start):\n    distances = {node: float('inf') for node in graph}\n    distances[start] = 0\n    pq = [(0, start)]\n\n    while pq:\n        curr_dist, curr_node = heapq.heappop(pq)\n        if curr_dist > distances[curr_node]:\n            continue\n        for neighbor, weight in graph[curr_node].items():\n            distance = curr_dist + weight\n            if distance < distances[neighbor]:\n                distances[neighbor] = distance\n                heapq.heappush(pq, (distance, neighbor))\n    return distances"
+    },
+    {
+      "name": "A* Search",
+      "category": "Graph",
+      "complexity": {
+        "best": "O(E)",
+        "average": "O(E)",
+        "worst": "O(E)"
+      },
+      "explanation": "A* is a pathfinding algorithm that uses both actual cost from the start node and a heuristic estimate to the goal node. It’s commonly used in AI and game development.",
+      "code": "import heapq\n\ndef a_star(graph, start, goal, heuristic):\n    open_set = [(0, start)]\n    came_from = {}\n    g_score = {node: float('inf') for node in graph}\n    g_score[start] = 0\n    f_score = {node: float('inf') for node in graph}\n    f_score[start] = heuristic(start, goal)\n\n    while open_set:\n        _, current = heapq.heappop(open_set)\n        if current == goal:\n            return reconstruct_path(came_from, current)\n        for neighbor, weight in graph[current].items():\n            tentative_g = g_score[current] + weight\n            if tentative_g < g_score[neighbor]:\n                came_from[neighbor] = current\n                g_score[neighbor] = tentative_g\n                f_score[neighbor] = g_score[neighbor] + heuristic(neighbor, goal)\n                heapq.heappush(open_set, (f_score[neighbor], neighbor))"
+    }
+  ]
+}

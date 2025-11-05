@@ -5,13 +5,19 @@ import os
 #create a flask object/instance
 app = Flask(__name__)
 
-#give the url/route, since it is first run use /
+#----------page routes---------
+#index
 @app.route('/')
-
-#select which html page to render when app runs
 def index():
     return render_template('index.html')
 
+#algo page
+@app.route('/algorithms')
+def algoPage():
+    return render_template('algorithms.html')
+
+#----------data routes----------
+#complexities
 @app.route('/data')
 def data():
     dataPath = os.path.join(app.root_path, 'data/complexities.json')
@@ -19,6 +25,13 @@ def data():
         jsonOut = json.load(dataIn)
     return jsonify(jsonOut)
 
+#algorithms
+@app.route('/algo-data')
+def algoData():
+    path = os.path.join(app.root_path, 'data/algorithms.json')
+    with open(path, 'r') as dataIn:
+        dataOut = json.load(dataIn)
+    return jsonify(dataOut)
 
 if __name__ == '__main__':
     app.run(debug=True)
