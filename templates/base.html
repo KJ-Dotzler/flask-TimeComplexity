@@ -2,19 +2,40 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Time Complexity{% endblock %}</title>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwindconfig= {
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '2563eb',
+                            secondary: '475569'                    
+                        }
+                    }
+                }
+            }
+        </script>
+
     </head>
-    <body>
-        <header>
-            <h1>Time Complexity Visualizer</h1>
-            <p>visualize different algorithms and their time complexities</p>
+    <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+        <header class="bg-white shadow-md py-6 mb-8">
+            <div class="container mx-auto text-center">
+                <h1 class="text-3xl font-bold text-primary">Time Complexity Visualizer</h1>
+                <p class="text-gray-500">visualize different algorithms and their time complexities</p>
+            </div>
+            <nav class="mt-4 flex justify-center space-x-8 text-blue-600">
+                <a href="{{ url_for('index') }}" class="hover:underline">Home</a>
+                <a href="{{ url_for('complexPage') }}" class="hover:underline">Complexities</a>
+                <a href="{{ url_for('algoPage') }}" class="hover:underline">Algorithms</a>
+            </nav>
         </header>
-        <main>
+        
+        <main class="flex-grow container mx-auto px-4">
             {% block content %}{% endblock %}
         </main>
-        <footer>
+        <footer class="bg-white mt-12 py-4 text-center text-sm text-gray-500 border-t">
             <p>Created for learning purposes. Uses python flask, html, CSS, and JS</p>
             <p><i>Created by Kenneth Dotzler. ChatGPT was used for some code structure, debugging,  
                 and overall assistance.</i></p>

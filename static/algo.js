@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async() => {
 
     algoList.addEventListener('change', (e) => {
         const selected = algoArr.find(a => a.name === e.target.value);
-        algoName.textContent = selected.name;
+        algoName.textContent = `${selected.name} complexity: ${selected.complexity.worst} (worst time)`;
         algoExplanation.textContent = selected.explanation;
         algoCode.innerHTML = `${selected.code}`;
         
@@ -91,6 +91,7 @@ function simGrowth(complexity){
         case 'O(n^2)' : return nVals.map(n => n * n);
         case 'O(E)' : return nVals.map(n => n * 1.5);//need to get the math to map 
         case 'O(V + E)' : return nVals.map(n => n * 2);
+        case 'O(V + E log V)' : return nVals.map(() => 0);
         case 'O(V^2)' : nVals.map(n => n * n * 1.2);
         default: nVals.map(() => 0);
     }

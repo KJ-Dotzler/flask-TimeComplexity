@@ -1,4 +1,19 @@
-{% extends base.html %}
-{% block title %}{% endblock %}
-{% block content %}{% endblock %}
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <section class="text-center mt-12 space-y-6">
+        <h2 class="text-4xl font-bold text-primary">Welcome to the time complexity and algorithm visualizer.</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Learn how algorithms scale with input size and explore their performance through interactive visuals
+        </p>
+        <div class="justify-center space-x-6 mt-8">
+            <a href="{{ url_for('complexPage') }}" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+                Explore Complexities
+            </a>
+            <a href="{{ url_for('algoPage') }}" class="bg-accent text-white px-6 py-3 rounded-lg hover:bg-amber-600">
+                View Algorithms
+            </a> 
+        </div>
+    </section>
+{% endblock %}
 {% block scripts %}{% endblock %}
