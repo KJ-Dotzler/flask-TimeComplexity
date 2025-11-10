@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title%}<a href="{{ url_for('index') }}">Home</a> | Time Complexity | <a href="{{ url_for('algoPage') }}">Algorithms</a>{% endblock %}
+{% block content %}
+    <div class="container">
+        <section class="controls">
+            <label for="complex">Select a Time Complexity</label>
+            <select id="complex"></select>
+        </section>
+
+        <section class="info">
+            <h2 id="complexName">Complexity</h2>
+            <h4 id="complexTime">Time Complexity: <strong>N/A</strong></h4>
+            <p id="complexDescription">No Time Complexity selected</p>
+        </section>
+
+        <section class="testing">
+            <p id="testOutput"></p>
+        </section>
+
+        <section class="chart">
+            <canvas id="complexChart" width="350" height="175"></canvas>
+        </section>
+        
+
+        <canvas id="timeChart" width="300" height="150"></canvas>
+    </div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+{% endblock %}

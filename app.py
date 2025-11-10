@@ -11,6 +11,11 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+#complexity page
+@app.route('/complexity')
+def complexPage():
+    return render_template('complexity.html')
+
 #algo page
 @app.route('/algorithms')
 def algoPage():
