@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", async() => {
     const data = await response.json();
     const complexArr = data.algorithms;
 
-    const testing = document.getElementById('testOutput')
-    testing.textContent = "";
+ 
 
     complexArr.forEach(cpx => {
         const option = document.createElement("option");

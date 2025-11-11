@@ -2,27 +2,23 @@
 {% block title%}Time Complexity{% endblock %}
 {% block content %}
     <div class="container">
-        <section class="controls">
-            <label for="complex">Select a Time Complexity</label>
-            <select id="complex"></select>
-        </section>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+            <section class="controls">
+                <label for="complex" class="block text-gray-700 mb-2 font-medium">Select a Time Complexity</label>
+                <select id="complex" class="w-full border border-gray-300 rounded-md p-2"></select>
+            </section>
 
-        <section class="info">
-            <h2 id="complexName">Complexity</h2>
-            <h4 id="complexTime">Time Complexity: <strong>N/A</strong></h4>
-            <p id="complexDescription">No Time Complexity selected</p>
-        </section>
+            <section class="info bg-white shadow-md rounded-lg p-6">
+                <h2 id="complexName" class="text-2xl font-bold mb-2">Complexity</h2>
+                <h4 id="complexTime" class="text-gray-700 mb-4">Time Complexity: <strong>N/A</strong></h4>
+                <p id="complexDescription" class="text-gray-600">No Time Complexity selected</p>
+            </section>
+        </div>
 
-        <section class="testing">
-            <p id="testOutput"></p>
-        </section>
-
-        <section class="chart">
-            <canvas id="complexChart" width="350" height="175"></canvas>
+        <section class="mt-8">
+            <canvas id="complexChart" class="w-full h-64 rounded-lg shadow-lg"></canvas>
         </section>
         
-
-        <canvas id="timeChart" width="300" height="150"></canvas>
     </div>
 {% endblock %}
 {% block scripts %}

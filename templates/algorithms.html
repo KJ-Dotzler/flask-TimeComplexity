@@ -2,22 +2,22 @@
 {%block title %}Algorithms{% endblock %}
 {% block content %}
     <div class="container">
-        <section class="controls">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+            <section class="controls">
             
-            <label for="algoList">Select an algorithm</label>
-            <select id="algoList"></select>
-            <label>
-                <br>
-                <input type="checkbox" id="scaleToggle">
-                Scale Chart
-            </label>
-        </section>
+                <label for="algoList" class="block text-gray-700 mb-2 font-medium">Select an algorithm</label>
+                <select id="algoList" class="w-full border border-gray-300 rounded-md p-2"></select>
+                <label class="text-blue-600 p-1">
+                    <input type="checkbox" id="scaleToggle">
+                    Scale Chart
+                </label>
+            </section>
 
-        <section class="info">
-            <h2 id="algoName">Algorithm</h2>
-            <h4 id="algoExplanation">Explanation</h4>
-        </section>
-
+            <section class="info">
+                <h2 id="algoName">Algorithm</h2>
+                <h4 id="algoExplanation">Explanation</h4>
+            </section>
+        </div>
         <section class="chart">
             <canvas id="algoChart" width="100" height="100"></canvas>
         </section>
