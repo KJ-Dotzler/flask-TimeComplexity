@@ -1,30 +1,31 @@
 {% extends "base.html" %}
 {%block title %}Algorithms{% endblock %}
 {% block content %}
-    <div class="container">
+    <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
             <section class="controls">
             
                 <label for="algoList" class="block text-gray-700 mb-2 font-medium">Select an algorithm</label>
                 <select id="algoList" class="w-full border border-gray-300 rounded-md p-2"></select>
                 <label class="text-blue-600 p-1">
-                    <input type="checkbox" id="scaleToggle">
+                    <input type="checkbox" id="scaleToggle" class="p-2 mt-4">
                     Scale Chart
                 </label>
             </section>
+        
 
-            <section class="info">
-                <h2 id="algoName">Algorithm</h2>
-                <h4 id="algoExplanation">Explanation</h4>
+            <section class="info mb-8 px-4 text-center">
+                <h2 id="algoName" class="text-2xl sm:text-3xl font-bold text-primary mb-2">Algorithm</h2>
+                <h4 id="algoExplanation" class="text-gray-700 text-base sm:text-lg">Explanation</h4>
             </section>
         </div>
-        <section class="chart">
-            <canvas id="algoChart" width="100" height="100"></canvas>
+        <section class="chart flex justify-center px-4 mb-8">
+            <canvas id="algoChart" class="w-full max-w-2xl max-h-96 rounded-lg shadow-md bg-white"></canvas>
         </section>
 
-        <section class="code">
-            <h3>Example of function/method that uses algorithm</h3>
-            <pre><code id="algoCode">Test/Example code</code></pre>
+        <section class="code bg-gray-100 rounded-lg shadow-inner p-4 mx-4 mb-8 ">
+            <h3 id="codeExp" class="text-lg font-semibold mb-2 text-primary">Example of function/method that uses algorithm</h3>
+            <pre><code id="algoCode" class="font-mono text-sm">Test/Example code</code></pre>
         </section>
     </div>
 {% endblock %}

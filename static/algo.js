@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     const algoExplanation = document.getElementById('algoExplanation');
     const algoChart = document.getElementById('algoChart').getContext('2d');
     const algoCode = document.getElementById('algoCode');
+    const codeExp = document.getElementById('codeExp');
 
     const response = await fetch('/algo-data');
     const data = await response.json();
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async() => {
         algoName.textContent = `${selected.name} complexity: ${selected.complexity.worst} (worst time)`;
         algoExplanation.textContent = selected.explanation;
         algoCode.innerHTML = `${selected.code}`;
+        codeExp.innerHTML = `Example of function/method that uses ${selected.name}`;
         
         const bestGrow = simGrowth(selected.complexity.best);
         const avgGrow = simGrowth(selected.complexity.average);
